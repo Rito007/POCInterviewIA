@@ -1,0 +1,28 @@
+#Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build / Output
+dist/*
+!dist/public/
+!dist/public/**
+!dist/public/respostas
+build/
+out/
+
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment / system
+.env
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
