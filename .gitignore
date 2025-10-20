@@ -9,7 +9,7 @@ pnpm-debug.log*
 dist/*
 !dist/public/
 !dist/public/**
-!dist/public/respostas
+!dist/respostas
 build/
 out/
 
