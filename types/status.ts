@@ -1,5 +1,5 @@
 export enum Status{
-    Greetings,
-    Speaking,
-    WaitingAi
+    Greetings = "Greetings",
+    Speaking = "Speaking",
+    WaitingAi = "WaitingAi"
 }

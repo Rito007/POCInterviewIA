@@ -1,7 +1,8 @@
-
-import {Status} from "./status";
+export type MessageContext = {
+    role: "user" | "system" |"assistant",
+    content: string
+}
 
 export default interface ClientStatus{
-    status: Status,
-    context: string
+    context: MessageContext[]
 }
