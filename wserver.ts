@@ -6,8 +6,6 @@ import { TypeMessage } from "./types/clientmessage";
 import ClientMessage from "./types/clientmessage";
 import { ClientMessageImpl } from "./types/clientmessage";
 import handleGreetings from "./wshandles/greetings";
-import { promptIAAudio } from "./iafunctions";
-import { arrayBuffer } from "stream/consumers";
 import { handleClientVoice } from "./wshandles/clientvoice";
 const clients = new Map<WebSocket,ClientStatus>();
 

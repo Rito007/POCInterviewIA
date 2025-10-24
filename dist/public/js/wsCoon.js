@@ -57,8 +57,7 @@ ws.onmessage = async (event) => {
 const startGreetingButton = document.getElementById("startCall");
 startGreetingButton.onclick = async () => {
     const micReady = await setupMicrophone();
-    startRecording();
-    if (ws.readyState === WebSocket.OPEN && false) {
+    if (ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({
             type_message: "StringMessage",
             status: "Greetings",
@@ -141,6 +140,7 @@ const verificarSilencio =async ()=>{
 
 const startRecording = async ()=>{
     audioBuffer = []
+    mediaRecorder.start();
     recordingVoice = true
     verificarSilencio();
 }
@@ -148,6 +148,7 @@ const startRecording = async ()=>{
 
 const stopRecording = async ()=>{
     recordingVoice = false;
+    mediaRecorder.stop();
     const blob = new Blob(audioBuffer,{type:'audio/webm'})
     ws.send(blob);
 }
@@ -175,6 +176,5 @@ const setupMediaRecorder = async (stream)=>{
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 512;
     source.connect(analyser);
-    mediaRecorder.start();
 }
 

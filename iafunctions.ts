@@ -23,14 +23,13 @@ export async function promptIAAudio(
       max_completion_tokens: 800,
     });
 
-    const textoGerado = response.choices[0].message.content?.trim() || "";
+    const textoGerado =  response.choices[0].message.content?.trim() || "";
     console.log("🗣️ Texto gerado pela Cátia:", textoGerado.slice(0, 150) + "...");
 
     if (!textoGerado) {
       return { texto: "", audio: null, contexto };
     }
 
-    // --- 2️⃣ Adicionar a resposta da IA ao contexto ---
     const contextoAtualizado : MessageContext[] = [
       ...contexto,
       { role: "assistant", content: textoGerado },
@@ -41,6 +40,7 @@ export async function promptIAAudio(
       model: "gpt-4o-mini-tts",
       voice: "alloy",
       input: textoGerado,
+      instructions:'Fala em português europeu e fala de forma assertiva e mete medo, é super importante!'
     });
 
     const arrayBuffer = await speech.arrayBuffer();
